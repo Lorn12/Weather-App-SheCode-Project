@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #202020;
+}
+
+.container {
+  background: linear-gradient(to right top, #7d3dbc, #5a39bc);
+  color: #fff;
+  padding: 2rem;
+  width: 50%;
+  margin: 6rem auto;
+  border-radius: 10px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* <!-- Search Section -----------------------------------------------------------------------> */
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  border: none;
+  background: rgba(40, 40, 40, 0.7);
+  outline: none;
+  color: #fff;
+  padding: 0.5rem 2.5rem;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+.weather-search {
+  position: relative;
+}
+
+.weather-search i {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 15px;
+  color: #fff;
+}
+
+/* <!-- Button section ----------------------------------------------------------------------> */
+.options {
+  display: absolute;
+}
+
+.current-location-button {
+  color: #fff;
+  font-size: 1.25rem;
+  background: rgba(40, 40, 40, 0.7);
+  padding: 0.25rem 0.5rem;
+  /* margin-bottom: 0.25rem; */
+  border: none;
+  border-radius: 10px;
+}
+
+.current-location-button:hover {
+  color: #5a39bc;
+}
+
+.weather-units {
+  font-size: 1.25rem;
+  background: rgba(40, 40, 40, 0.7);
+  padding: 0.25rem 1rem;
+  border-radius: 10px;
+}
+
+.toggle-color {
+  color: #5a39bc;
+}
+
+.weather-units span {
+  cursor: pointer;
+}
+
+.weather-units span:first-child {
+  margin-right: 0.5rem;
+}
+
+/* <!-- Current-Weather-Body ---------------------------------------------------------------> */
+
+.weather-body {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.weather-datetime {
+  margin-bottom: 2rem;
+  font-size: 14px;
+}
+
+.weather-forecast {
+  display: inline-block;
+  background: rgba(40, 40, 40, 0.4);
+  border-radius: 30px;
+  /* padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem; */
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weather-icon i {
+  font-size: 3rem;
+}
+
+.weather-icon img {
+  width: 100px;
+}
+
+.weather-temperature {
+  font-size: 1.75rem;
+  margin-top: 1rem;
+}
+
+.weather-minmax {
+  display: flex;
+  justify-content: center;
+}
+
+.weather-minmax p {
+  font-size: 14px;
+  margin: 0.5rem;
+}
+
+.weather-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-top: 3rem;
+}
+
+.weather-card {
+  display: flex;
+  align-items: center;
+  background: rgba(40, 40, 40, 0.4);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.weather-card i {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.weather-card p {
+  font-size: 14px;
+}
+
+/* <!-- Weekly Forecast section ----------------------------------------------------------------> */
+
+.weekly-weather-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(40, 40, 40, 0.4);
+  margin-top: 2rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 0.9375rem;
+}
+
+.wkly-weather-card {
+  margin: 1rem auto;
+  padding: 0.35rem;
+}
+
+.weekly-weather-forecast i {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.temperature-prediction {
+  margin-top: 0.3rem;
+}
+
+/*@media **************************************************************************************/
+@media (min-width: 1400px) {
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .current-location-button {
+    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 1399px) {
+  .current-location-button {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 90%;
+  }
+
+  .weather-header {
+    flex-direction: column;
+  }
+
+  .options {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .weekly-weather-forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .temperature-prediction {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 406px) {
+  .weather_search {
+    display: flex;
+  }
+
+  .weather_search i {
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .weather-searchform {
+    width: 12rem;
+    font-size: 0.85rem;
+  }
+  .weather-info {
+    grid-template-columns: none;
+  }
+}
