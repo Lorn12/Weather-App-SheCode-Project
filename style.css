@@ -256,3 +256,18 @@ input::placeholder {
     grid-template-columns: none;
   }
 }
+
+/* <!-- GitHub repo link __________________________________________________________________________--> */
+
+.repoLink {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.repoLink:hover {
+  color: #7d3dbc;
+}
