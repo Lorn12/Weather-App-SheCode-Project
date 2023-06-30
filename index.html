@@ -31,33 +31,35 @@
             type="text"
             placeholder="Search for a City"
             class="weather-searchform"
+            
+            
           />
         </form>
        <!-- Button section ------------------------------------------------------->
         <div class="options">
         <button class="current-location-button">Current</button>
         <div class="weather-units">
-            <span class="weather-unit-celsius toggle-color">&#176C</span>
-            <span class="weather-unit-farenheit">&#176F</span>
+            <span class="weather-unit-celsius active">&#176C</span>
+            <span class="weather-unit-fahrenheit">&#176F</span>
         </div>
         </div>
          </div>
          <!-- Current-Weather-Body ----------------------------------------------->
       <div class="weather-body">
-        <h1 class="weather-city">Houston, Texas</h1>
+        <h1 class="weather-city"></h1>
         <div class="weather-datetime">
             Sunday, August 15, 2023 at 6:00 PM
         </div>
         <div class="weather-forecast">
            Cloudy
         </div>
-        <div class="weather-icon">
-          <i class="fa-solid fa-cloud-bolt fa-2xl"></i>
+        <div>
+         <img src="" class="weather-icon">
         </div>
-        <p class="weather-temperature">27&#176</p>
+        <p class="weather-temperature"></p>
         <div class="weather-minmax">
-          <p>Min: 25&#176</p>
-          <p>Max: 29&#176</p>
+          <p id="min"></p>
+          <p id="max"></p>
         </div>
       </div>
 
@@ -67,21 +69,21 @@
             <i class="fa-solid fa-temperature-full"></i>
             <div>
                 <p>Feels Like</p>
-                <p class="weather-feelslike">28&#176</p>
+                <p class="weather-feelslike"></p>
             </div>
         </div>
         <div class="weather-card">
             <i class="fa-solid fa-droplet"></i>
             <div>
                 <p>Humidity</p>
-                <p class="weather-humidity">60%</p>
+                <p class="weather-humidity"></p>
             </div>
         </div>
         <div class="weather-card">
             <i class="fa-solid fa-wind"></i>
             <div>
                 <p>Wind</p>
-                <p class="weather-wind">8.75m/s</p>
+                <p class="weather-wind"></p>
             </div>
         </div>
         <div class="weather-card">

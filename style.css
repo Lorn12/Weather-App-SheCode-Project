@@ -17,6 +17,7 @@ body {
   padding: 2rem;
   width: 50%;
   margin: 6rem auto;
+  margin-bottom: 2rem;
   border-radius: 10px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
@@ -66,7 +67,6 @@ input::placeholder {
   font-size: 1.25rem;
   background: rgba(40, 40, 40, 0.7);
   padding: 0.25rem 0.5rem;
-  /* margin-bottom: 0.25rem; */
   border: none;
   border-radius: 10px;
 }
@@ -82,7 +82,7 @@ input::placeholder {
   border-radius: 10px;
 }
 
-.toggle-color {
+.active {
   color: #5a39bc;
 }
 
@@ -110,9 +110,6 @@ input::placeholder {
   display: inline-block;
   background: rgba(40, 40, 40, 0.4);
   border-radius: 30px;
-  /* padding-top: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem; */
   padding: 1rem;
   margin-bottom: 2rem;
 }
@@ -241,6 +238,8 @@ input::placeholder {
 @media (max-width: 406px) {
   .weather_search {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .weather_search i {
