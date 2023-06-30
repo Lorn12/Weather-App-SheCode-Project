@@ -34,9 +34,9 @@ function updateWeatherData(response) {
   weatherCity.innerHTML = response.data.name;
   weatherForecast.innerHTML = response.data.weather[0].description;
   weatherMin.innerHTML =
-    "Min:" + Math.round(response.data.main.temp_min) + "&#176";
+    "Min: " + Math.round(response.data.main.temp_min) + "&#176";
   weatherMax.innerHTML =
-    "Max:" + Math.round(response.data.main.temp_max) + "&#176";
+    "Max: " + Math.round(response.data.main.temp_max) + "&#176";
   weatherTemperature.innerHTML = celsiusTemperature + "&#176";
   weatherFeelsLike.innerHTML =
     Math.round(response.data.main.feels_like) + "&#176";
