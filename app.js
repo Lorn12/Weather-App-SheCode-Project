@@ -30,6 +30,8 @@ function updateWeatherData(response) {
   let weatherMax = document.querySelector("#max");
 
   celsiusTemperature = Math.round(response.data.main.temp);
+  minTemperature = Math.round(response.data.main.temp_min);
+  maxTemperature = Math.round(response.data.main.temp_max);
 
   weatherCity.innerHTML = response.data.name;
   weatherForecast.innerHTML = response.data.weather[0].description;
@@ -70,6 +72,8 @@ function getCurrentLocation() {
 // Button Section - Weather Units
 
 let celsiusTemperature = null;
+let minTemperature = null;
+let maxTemperature = null;
 let fahrenheitToggle = document.querySelector(".weather-unit-fahrenheit");
 let celsiusToggle = document.querySelector(".weather-unit-celsius");
 
@@ -79,20 +83,30 @@ celsiusToggle.addEventListener("click", showCelsiusTemp);
 function showFahrenheitTemp(e) {
   e.preventDefault();
   let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  let min = (minTemperature * 9) / 5 + 32;
+  let max = (maxTemperature * 9) / 5 + 32;
   let weatherTemperature = document.querySelector(".weather-temperature");
+  let weatherMin = document.querySelector("#min");
+  let weatherMax = document.querySelector("#max");
 
   //Remove the active class link
   celsiusToggle.classList.remove("active");
   fahrenheitToggle.classList.add("active");
   weatherTemperature.innerHTML = Math.round(fahrenheitTemp) + "&#176";
+  weatherMin.innerHTML = "Min: " + Math.round(min) + "&#176";
+  weatherMax.innerHTML = "Max: " + Math.round(max) + "&#176";
 }
 
 function showCelsiusTemp(e) {
   e.preventDefault();
   let weatherTemperature = document.querySelector(".weather-temperature");
+  let weatherMin = document.querySelector("#min");
+  let weatherMax = document.querySelector("#max");
   celsiusToggle.classList.add("active");
   fahrenheitToggle.classList.remove("active");
   weatherTemperature.innerHTML = celsiusTemperature + "&#176";
+  weatherMin.innerHTML = "Min: " + minTemperature + "&#176";
+  weatherMax.innerHTML = "Max: " + maxTemperature + "&#176";
 }
 
 //_______________________________________________________________________________
