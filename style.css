@@ -250,8 +250,8 @@ input::placeholder {
   }
 
   .weather-searchform {
-    width: 12rem;
-    font-size: 0.85rem;
+    width: 10rem;
+    font-size: 1rem;
   }
   .weather-info {
     grid-template-columns: none;
