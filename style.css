@@ -137,6 +137,8 @@ input::placeholder {
   margin: 0.5rem;
 }
 
+/* <!-- Current-card section ---------------------------------------------------------------> */
+
 .weather-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
