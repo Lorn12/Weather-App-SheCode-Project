@@ -15,7 +15,7 @@ body {
   background: linear-gradient(to right top, #7d3dbc, #5a39bc);
   color: #fff;
   padding: 2rem;
-  width: 60%;
+  width: 50%;
   margin: 6rem auto;
   margin-bottom: 2rem;
   border-radius: 10px;
@@ -237,7 +237,7 @@ input::placeholder {
   }
 }
 
-@media (max-width: 406px) {
+@media (max-width: 416px) {
   .weather_search {
     display: flex;
     align-items: center;
