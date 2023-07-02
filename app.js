@@ -32,6 +32,7 @@ function updateWeatherData(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
   minTemperature = Math.round(response.data.main.temp_min);
   maxTemperature = Math.round(response.data.main.temp_max);
+  feels_Like = Math.round(response.data.main.feels_like);
 
   weatherCity.innerHTML = response.data.name;
   weatherForecast.innerHTML = response.data.weather[0].description;
@@ -74,6 +75,7 @@ function getCurrentLocation() {
 let celsiusTemperature = null;
 let minTemperature = null;
 let maxTemperature = null;
+let feels_Like = null;
 let fahrenheitToggle = document.querySelector(".weather-unit-fahrenheit");
 let celsiusToggle = document.querySelector(".weather-unit-celsius");
 
@@ -85,9 +87,11 @@ function showFahrenheitTemp(e) {
   let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   let min = (minTemperature * 9) / 5 + 32;
   let max = (maxTemperature * 9) / 5 + 32;
+  let feel = (feels_Like * 9) / 5 + 32;
   let weatherTemperature = document.querySelector(".weather-temperature");
   let weatherMin = document.querySelector("#min");
   let weatherMax = document.querySelector("#max");
+  let feelsLike = document.querySelector(".weather-feelslike");
 
   //Remove the active class link
   celsiusToggle.classList.remove("active");
@@ -95,6 +99,7 @@ function showFahrenheitTemp(e) {
   weatherTemperature.innerHTML = Math.round(fahrenheitTemp) + "&#176";
   weatherMin.innerHTML = "Min: " + Math.round(min) + "&#176";
   weatherMax.innerHTML = "Max: " + Math.round(max) + "&#176";
+  feelsLike.innerHTML = Math.round(feel) + "&#176";
 }
 
 function showCelsiusTemp(e) {
@@ -102,11 +107,13 @@ function showCelsiusTemp(e) {
   let weatherTemperature = document.querySelector(".weather-temperature");
   let weatherMin = document.querySelector("#min");
   let weatherMax = document.querySelector("#max");
+  let feelsLike = document.querySelector(".weather-feelslike");
   celsiusToggle.classList.add("active");
   fahrenheitToggle.classList.remove("active");
   weatherTemperature.innerHTML = celsiusTemperature + "&#176";
   weatherMin.innerHTML = "Min: " + minTemperature + "&#176";
   weatherMax.innerHTML = "Max: " + maxTemperature + "&#176";
+  feelsLike.innerHTML = feels_Like + "&#176";
 }
 
 //_______________________________________________________________________________
