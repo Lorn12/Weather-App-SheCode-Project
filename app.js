@@ -158,6 +158,33 @@ let time = today.toLocaleTimeString("en-US", {
 });
 
 dateTime.innerHTML = `${day}, ${month} ${date}, ${year} at ${time}`;
+//_______________________________________________________________________________
+//Weekly forecast Section
+function showWeeklyForecast() {
+  let forecastElement = document.getElementById("forecast");
 
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+    <p class="day">${day}</p>
+    <div class="icon-background">
+  <i class="fa-solid fa-cloud"></i>
+</div>
+   <div class="forecast-prediction">
+    Cloudy
+   </div>
+   <div class="temperature-prediction">
+    86&#176 | 69&#176
+   </div>
+  </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 //call functions_____________________________________________________________________
 search("Houston");
+showWeeklyForecast();
