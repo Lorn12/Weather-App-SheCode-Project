@@ -114,6 +114,8 @@ function showCelsiusTemp(e) {
   weatherMin.innerHTML = "Min: " + minTemperature + "&#176";
   weatherMax.innerHTML = "Max: " + maxTemperature + "&#176";
   feelsLike.innerHTML = feels_Like + "&#176";
+
+  getWeeklyForecast(response.data);
 }
 
 //_______________________________________________________________________________
@@ -177,7 +179,7 @@ function showWeeklyForecast() {
     Cloudy
    </div>
    <div class="temperature-prediction">
-    86&#176 | 69&#176
+    <span class="weather-temperature-max">86&#176</span> | <span class="weather-temperature-min">69&#176</span>
    </div>
   </div>`;
   });
@@ -185,6 +187,11 @@ function showWeeklyForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+function getWeeklyForecast(coordinates) {
+  console.log(coordinates);
+}
+
 //call functions_____________________________________________________________________
 search("Houston");
 showWeeklyForecast();

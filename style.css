@@ -186,6 +186,7 @@ input::placeholder {
 
 .day {
   margin-bottom: 0.5rem;
+  opacity: 0.9;
 }
 
 .weekly-weather-forecast i {
@@ -200,6 +201,10 @@ input::placeholder {
 
 .temperature-prediction {
   font-size: 0.8125rem;
+}
+
+.weather-temperature-min {
+  opacity: 0.5;
 }
 
 /*@media **************************************************************************************/
