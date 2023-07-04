@@ -1,4 +1,4 @@
-// ________________________________________________________________________________
+// _____________________________________________________________________________________________________________
 //Search Section
 
 let weatherSearch = document.querySelector(".weather_search");
@@ -50,9 +50,11 @@ function updateWeatherData(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getWeeklyForecast(response.data.coord);
 }
 
-//___________________________________________________________________________
+//______________________________________________________________________________________________________________
 //Button Section
 
 let currentLocationButton = document.querySelector(".current-location-button");
@@ -69,7 +71,7 @@ function getCurrentLocation() {
     axios.get(url).then(updateWeatherData);
   });
 }
-// ________________________________________________________________________________
+// ____________________________________________________________________________________________________________
 // Button Section - Weather Units
 
 let celsiusTemperature = null;
@@ -114,12 +116,10 @@ function showCelsiusTemp(e) {
   weatherMin.innerHTML = "Min: " + minTemperature + "&#176";
   weatherMax.innerHTML = "Max: " + maxTemperature + "&#176";
   feelsLike.innerHTML = feels_Like + "&#176";
-
-  getWeeklyForecast(response.data);
 }
 
-//_______________________________________________________________________________
-//Current-Weather-Body Section (Date time conversion)
+//_____________________________________________________________________________________________________________
+//Current-Weather-Body Section &  Weather Forecast - (Date time conversions)
 
 let today = new Date();
 
@@ -160,28 +160,47 @@ let time = today.toLocaleTimeString("en-US", {
 });
 
 dateTime.innerHTML = `${day}, ${month} ${date}, ${year} at ${time}`;
-//_______________________________________________________________________________
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return days[day];
+}
+
+//_____________________________________________________________________________________________________________
 //Weekly forecast Section
-function showWeeklyForecast() {
+
+function showWeeklyForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.getElementById("forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-    <p class="day">${day}</p>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+    <p class="day">${formatDay(forecastDay.dt)}</p>
     <div class="icon-background">
-  <i class="fa-solid fa-cloud"></i>
+    <img src="https://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="" width="36">
 </div>
    <div class="forecast-prediction">
     Cloudy
    </div>
    <div class="temperature-prediction">
-    <span class="weather-temperature-max">86&#176</span> | <span class="weather-temperature-min">69&#176</span>
+    <span class="weather-temperature-max">${Math.round(
+      forecastDay.temp.max
+    )}&#176</span> | <span class="weather-temperature-min">${Math.round(
+          forecastDay.temp.max
+        )}&#176</span>
    </div>
   </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -189,9 +208,12 @@ function showWeeklyForecast() {
 }
 
 function getWeeklyForecast(coordinates) {
-  console.log(coordinates);
+  let apiKey = "3a8167e7e492fbf0da6f21ef3617a59b";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(showWeeklyForecast);
 }
 
-//call functions_____________________________________________________________________
+//call functions________________________________________________________________________________________________
 search("Houston");
-showWeeklyForecast();
+// showWeeklyForecast();
