@@ -110,6 +110,7 @@ function showCelsiusTemp(e) {
   let weatherMin = document.querySelector("#min");
   let weatherMax = document.querySelector("#max");
   let feelsLike = document.querySelector(".weather-feelslike");
+
   celsiusToggle.classList.add("active");
   fahrenheitToggle.classList.remove("active");
   weatherTemperature.innerHTML = celsiusTemperature + "&#176";
@@ -173,11 +174,10 @@ function formatDay(timestamp) {
 //Weekly forecast Section
 
 function showWeeklyForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.getElementById("forecast");
-
   let forecastHTML = `<div class="row">`;
+
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
@@ -190,7 +190,7 @@ function showWeeklyForecast(response) {
     }@2x.png" alt="" width="36">
 </div>
    <div class="forecast-prediction">
-    Cloudy
+    ${forecastDay.weather[0].main}
    </div>
    <div class="temperature-prediction">
     <span class="weather-temperature-max">${Math.round(
@@ -210,7 +210,7 @@ function showWeeklyForecast(response) {
 function getWeeklyForecast(coordinates) {
   let apiKey = "3a8167e7e492fbf0da6f21ef3617a59b";
   let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(showWeeklyForecast);
 }
 
