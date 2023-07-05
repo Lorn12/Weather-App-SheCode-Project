@@ -17,6 +17,7 @@ function currentCity(e) {
   search(searchInput.value);
 }
 
+//Weather data response
 function updateWeatherData(response) {
   let weatherCity = document.querySelector(".weather-city");
   let weatherForecast = document.querySelector(".weather-forecast");
@@ -78,6 +79,8 @@ let celsiusTemperature = null;
 let minTemperature = null;
 let maxTemperature = null;
 let feels_Like = null;
+let weekMax = [];
+let weekMin = [];
 let fahrenheitToggle = document.querySelector(".weather-unit-fahrenheit");
 let celsiusToggle = document.querySelector(".weather-unit-celsius");
 
@@ -90,10 +93,18 @@ function showFahrenheitTemp(e) {
   let min = (minTemperature * 9) / 5 + 32;
   let max = (maxTemperature * 9) / 5 + 32;
   let feel = (feels_Like * 9) / 5 + 32;
+  let weekMaxF = weekMax.map((temp) => (temp * 9) / 5 + 32);
+  let weekMinF = weekMin.map((temp) => (temp * 9) / 5 + 32);
   let weatherTemperature = document.querySelector(".weather-temperature");
   let weatherMin = document.querySelector("#min");
   let weatherMax = document.querySelector("#max");
   let feelsLike = document.querySelector(".weather-feelslike");
+  let weeklyForecastsMax = document.querySelectorAll(
+    ".weather-temperature-max"
+  );
+  let weeklyForecastsMin = document.querySelectorAll(
+    ".weather-temperature-min"
+  );
 
   //Remove the active class link
   celsiusToggle.classList.remove("active");
@@ -102,6 +113,14 @@ function showFahrenheitTemp(e) {
   weatherMin.innerHTML = "Min: " + Math.round(min) + "&#176";
   weatherMax.innerHTML = "Max: " + Math.round(max) + "&#176";
   feelsLike.innerHTML = Math.round(feel) + "&#176";
+
+  weeklyForecastsMax.forEach((element, index) => {
+    element.innerHTML = Math.round(weekMaxF[index]) + "&#176";
+  });
+
+  weeklyForecastsMin.forEach((element, index) => {
+    element.innerHTML = Math.round(weekMinF[index]) + "&#176";
+  });
 }
 
 function showCelsiusTemp(e) {
@@ -110,6 +129,12 @@ function showCelsiusTemp(e) {
   let weatherMin = document.querySelector("#min");
   let weatherMax = document.querySelector("#max");
   let feelsLike = document.querySelector(".weather-feelslike");
+  let weeklyForecastsMax = document.querySelectorAll(
+    ".weather-temperature-max"
+  );
+  let weeklyForecastsMin = document.querySelectorAll(
+    ".weather-temperature-min"
+  );
 
   celsiusToggle.classList.add("active");
   fahrenheitToggle.classList.remove("active");
@@ -117,6 +142,13 @@ function showCelsiusTemp(e) {
   weatherMin.innerHTML = "Min: " + minTemperature + "&#176";
   weatherMax.innerHTML = "Max: " + maxTemperature + "&#176";
   feelsLike.innerHTML = feels_Like + "&#176";
+  weeklyForecastsMax.forEach((element, index) => {
+    element.innerHTML = weekMax[index] + "&#176";
+  });
+
+  weeklyForecastsMin.forEach((element, index) => {
+    element.innerHTML = weekMin[index] + "&#176";
+  });
 }
 
 //_____________________________________________________________________________________________________________
@@ -180,6 +212,9 @@ function showWeeklyForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      weekMax.push(Math.round(forecastDay.temp.max));
+      weekMin.push(Math.round(forecastDay.temp.min));
+
       forecastHTML =
         forecastHTML +
         `<div class="col-2">
@@ -187,7 +222,7 @@ function showWeeklyForecast(response) {
     <div class="icon-background">
     <img src="https://openweathermap.org/img/wn/${
       forecastDay.weather[0].icon
-    }@2x.png" alt="" width="36">
+    }@2x.png" alt="">
 </div>
    <div class="forecast-prediction">
     ${forecastDay.weather[0].main}
@@ -196,7 +231,7 @@ function showWeeklyForecast(response) {
     <span class="weather-temperature-max">${Math.round(
       forecastDay.temp.max
     )}&#176</span> | <span class="weather-temperature-min">${Math.round(
-          forecastDay.temp.max
+          forecastDay.temp.min
         )}&#176</span>
    </div>
   </div>`;
