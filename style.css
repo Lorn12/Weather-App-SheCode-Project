@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"); */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
   color: #fff;
   padding: 2rem;
   max-width: 37.5rem;
-  margin: 6rem auto;
+  margin: 4rem auto;
   margin-bottom: 2rem;
   border-radius: 10px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -46,12 +47,12 @@ input::placeholder {
   color: #fff;
 }
 
-/* .weather-search {
+.weather-search {
   position: relative;
-} */
+}
 
 .weather-search i {
-  /* position: absolute; */
+  position: absolute;
   left: 10px;
   top: 10px;
   font-size: 15px;
@@ -67,7 +68,7 @@ input::placeholder {
   color: #fff;
   font-size: 1.25rem;
   background: rgba(40, 40, 40, 0.7);
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 1rem;
   border: none;
   border-radius: 10px;
 }
@@ -103,6 +104,7 @@ input::placeholder {
 }
 
 .weather-datetime {
+  margin-top: 1rem;
   margin-bottom: 2rem;
   font-size: 0.875rem;
 }
@@ -125,7 +127,6 @@ input::placeholder {
 
 .weather-temperature {
   font-size: 1.75rem;
-  /* margin-top: 1rem; */
 }
 
 .weather-minmax {
@@ -134,7 +135,7 @@ input::placeholder {
 }
 
 .weather-minmax p {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 0.5rem;
 }
 
@@ -144,23 +145,23 @@ input::placeholder {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .weather-card {
   display: flex;
   text-align: center;
+  align-items: center;
   justify-content: center;
   background: rgba(40, 40, 40, 0.4);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: 0.9rem;
   border-radius: 10px;
 }
 
 .weather-card i {
   font-size: 1.5rem;
-  margin: 1rem;
-  margin-top: 1.5rem;
+  margin-right: 1rem;
 }
 
 .weather-card p {
@@ -179,22 +180,35 @@ input::placeholder {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   font-size: 0.875rem;
-  padding: 0.5rem;
+  padding: 2rem;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: repeat(4, 4fr);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.col-2:nth-of-type(even) {
+  background: rgba(40, 40, 40, 0.4);
+  border-radius: 0.3125em;
 }
 
 .day {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   opacity: 0.9;
 }
 
 .weekly-weather-forecast img {
   width: 2.5rem;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 .forecast-prediction {
   font-size: 0.9rem;
-  margin-bottom: 0.3rem;
+  /* margin-bottom: 0.3rem; */
 }
 
 .temperature-prediction {
@@ -239,16 +253,16 @@ input::placeholder {
   }
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .weekly-weather-forecast {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* .temperature-prediction {
+  .temperature-prediction {
     font-size: 0.85rem;
-  } */
-}
+  }
+} */
 
 @media (max-width: 416px) {
   .weather_search {
