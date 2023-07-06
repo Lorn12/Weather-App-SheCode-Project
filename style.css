@@ -286,3 +286,13 @@ input::placeholder {
 .repoLink:hover {
   color: #7d3dbc;
 }
+
+.coded {
+  color: #fff;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+}
