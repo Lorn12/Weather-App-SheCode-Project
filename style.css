@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Poppins", sans-serif; */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -39,12 +38,13 @@ input {
   background: rgba(40, 40, 40, 0.7);
   outline: none;
   color: #fff;
-  padding: 0.5rem 2.5rem;
+  padding: 0.8rem 2.5rem;
   border-radius: 5px;
 }
 
 input::placeholder {
   color: #fff;
+  font-size: 1rem;
 }
 
 .weather-search {
@@ -60,9 +60,6 @@ input::placeholder {
 }
 
 /* <!-- Button section ----------------------------------------------------------------------> */
-/* .options {
-  display: absolute;
-} */
 
 .current-location-button {
   color: #fff;
@@ -115,6 +112,7 @@ input::placeholder {
   border-radius: 30px;
   padding: 1rem;
   margin-bottom: 1rem;
+  text-transform: capitalize;
 }
 
 .weather-icon i {
@@ -252,17 +250,6 @@ input::placeholder {
     margin-top: 1rem;
   }
 }
-
-/* @media (max-width: 600px) {
-  .weekly-weather-forecast {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .temperature-prediction {
-    font-size: 0.85rem;
-  }
-} */
 
 @media (max-width: 416px) {
   .weather_search {
