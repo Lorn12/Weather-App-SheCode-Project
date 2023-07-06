@@ -45,7 +45,7 @@ function updateWeatherData(response) {
   weatherFeelsLike.innerHTML =
     Math.round(response.data.main.feels_like) + "&#176";
   weatherHumidity.innerHTML = response.data.main.humidity + "%";
-  weatherWind.innerHTML = Math.round(response.data.wind.speed) + "m/s";
+  weatherWind.innerHTML = Math.round(response.data.wind.speed) + " mph";
   weatherPressure.innerHTML = response.data.main.pressure + " hPa";
   weatherIcon.setAttribute(
     "src",
@@ -53,6 +53,7 @@ function updateWeatherData(response) {
   );
 
   getWeeklyForecast(response.data.coord);
+  console.log(response.data);
 }
 
 //______________________________________________________________________________________________________________
