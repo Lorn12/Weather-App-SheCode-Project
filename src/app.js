@@ -15,6 +15,10 @@ function currentCity(e) {
   e.preventDefault();
   let searchInput = document.querySelector(".weather-searchform");
   search(searchInput.value);
+
+  //Clear input field post submit
+  weatherSearch = searchInput.value;
+  searchInput.value = "";
 }
 
 //Weather data response
@@ -252,4 +256,3 @@ function getWeeklyForecast(coordinates) {
 
 //call functions________________________________________________________________________________________________
 search("Houston");
-// showWeeklyForecast();
