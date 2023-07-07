@@ -218,7 +218,7 @@ function showWeeklyForecast(response) {
 
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="weather-col">
     <p class="day">${formatDay(forecastDay.dt)}</p>
     <div class="icon-background">
     <img src="https://openweathermap.org/img/wn/${

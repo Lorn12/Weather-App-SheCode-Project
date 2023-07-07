@@ -85,6 +85,7 @@ body {
   padding: 0.25rem 1rem;
   border: none;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .current-location-button:hover {
@@ -96,6 +97,7 @@ body {
   background: rgba(40, 40, 40, 0.6);
   padding: 0.25rem 1rem;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .active {
@@ -198,7 +200,7 @@ body {
   padding: 2rem;
 }
 
-.col-2 {
+.weather-col {
   display: grid;
   grid-template-columns: repeat(4, 4fr);
   align-items: center;
@@ -209,7 +211,7 @@ body {
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-.col-2:nth-of-type(even) {
+.weather-col:nth-of-type(even) {
   background: rgba(40, 40, 40, 0.4);
   border-radius: 0.3125em;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
