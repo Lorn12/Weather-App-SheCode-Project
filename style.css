@@ -193,12 +193,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: rgba(40, 40, 40, 0.4);
-  margin-top: 1rem;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  /* background: rgba(40, 40, 40, 0.4); */
+  /* margin-top: 1rem; */
+  /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
   border-radius: 10px;
   font-size: 0.875rem;
-  padding: 2rem;
+  padding: 1rem 0;
 }
 
 .weather-col {
@@ -207,6 +207,7 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
+  /* width: fit-content; */
   border-radius: 0.3125em;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
