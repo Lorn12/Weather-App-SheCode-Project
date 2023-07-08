@@ -57,7 +57,6 @@ function updateWeatherData(response) {
   );
 
   getWeeklyForecast(response.data.coord);
-  console.log(response.data);
 }
 
 //______________________________________________________________________________________________________________
