@@ -210,6 +210,10 @@ function formatDay(timestamp) {
 //Weekly forecast Section
 
 function showWeeklyForecast(response) {
+  // Clear the weekly temperature arrays
+  weekMax = [];
+  weekMin = [];
+
   let forecast = response.data.daily;
   let forecastElement = document.getElementById("forecast");
   let forecastHTML = `<div class="row">`;
